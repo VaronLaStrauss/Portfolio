@@ -2,23 +2,23 @@
 @import "/src/styles/colors.scss";
 @import "/src/styles/tooltip.scss";
 
-article {
+.skill {
   display: inline-flex;
   flex-direction: row;
-  gap: 0.5rem;
   align-items: center;
+  gap: 0.5rem;
 
   .logo {
-    $size: 2.5rem;
-    flex: 0 0 $size;
-    font-size: $size;
-    max-height: $size;
-    height: 100%;
-    width: 100%;
+    $logo-size: 2.5rem;
+    width: $logo-size;
+    height: $logo-size;
 
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      padding: 0.2rem;
+    }
   }
 
   .percentages {
@@ -27,6 +27,8 @@ article {
   }
 
   .status {
+    flex: 1 1 auto;
+
     .status-bar {
       text-align: center;
       position: relative;

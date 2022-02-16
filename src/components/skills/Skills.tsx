@@ -1,18 +1,20 @@
 import { Component } from "react";
 import { Skill } from "../../types";
-import "./index.scss";
+import "./Skills.scss";
 
 export default class SkillComponent extends Component {
   render() {
     const { name, percent, logo } = this.props as Skill;
 
     return (
-      <article>
-        {!!logo ? (
-          <img className="logo" src={logo} alt={name} />
-        ) : (
-          <span className="material-icons logo">image</span>
-        )}
+      <article className="skill card">
+        <div className="logo">
+          {!!logo ? (
+            <img src={"logo/" + logo} alt={name} />
+          ) : (
+            <span className="material-icons">image</span>
+          )}
+        </div>
         <div className="status tooltip">
           <span>{name}</span>
           <div className="status-bar">
