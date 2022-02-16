@@ -1,7 +1,6 @@
 import { Component, ReactNode } from "react";
 import "./App.css";
 import SkillComponent from "./components/skills";
-import Cover from "./components/top/Cover";
 import { Skill } from "./types";
 
 export default class App extends Component {
@@ -10,7 +9,6 @@ export default class App extends Component {
   render(): ReactNode {
     return (
       <div>
-        <Cover />
         <div>
           <h2>Skills</h2>
           {this.skillset}
