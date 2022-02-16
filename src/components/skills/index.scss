@@ -1,0 +1,50 @@
+@use "/src/styles/utility.scss";
+@import "/src/styles/colors.scss";
+@import "/src/styles/tooltip.scss";
+
+article {
+  display: inline-flex;
+  flex-direction: row;
+  gap: 0.5rem;
+  align-items: center;
+
+  .logo {
+    $size: 2.5rem;
+    flex: 0 0 $size;
+    font-size: $size;
+    max-height: $size;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .percentages {
+    @extend .txt-muted;
+    display: flex;
+  }
+
+  .status {
+    .status-bar {
+      text-align: center;
+      position: relative;
+      min-width: 10rem;
+      height: 0.7ch;
+      background-color: $bg-primary;
+      border-radius: 10px;
+
+      .percent {
+        position: absolute;
+        top: -2.2ch;
+      }
+
+      .bar-filled {
+        height: 100%;
+        background-color: $bg-primary-dark;
+        border-radius: 10px;
+      }
+    }
+  }
+}

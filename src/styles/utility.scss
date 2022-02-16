@@ -1,0 +1,16 @@
+@import "./colors.scss";
+
+.spacer {
+  flex: 1;
+}
+
+.txt-muted {
+  font-size: small;
+  color: $txt-muted;
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

@@ -1,0 +1,36 @@
+.tooltip {
+  position: relative;
+
+  .tooltip-text {
+    word-wrap: break-word;
+    background-color: $tooltip-bg;
+    color: $tooltip-text;
+    text-align: center;
+    padding: 0.5ch 1ch;
+    border-radius: 6px;
+    max-width: 30ch;
+    z-index: 99;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+    bottom: -2.3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    position: absolute;
+
+    &::after {
+      content: " ";
+      position: absolute;
+      bottom: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: transparent transparent $tooltip-bg transparent;
+    }
+  }
+
+  &:hover .tooltip-text {
+    opacity: 1;
+  }
+}
