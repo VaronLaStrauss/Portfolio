@@ -1,17 +1,16 @@
 @use "/src/styles/utility.scss";
 @import "/src/styles/colors.scss";
 @import "/src/styles/tooltip.scss";
+@import "/src/styles/skill-logo.scss";
 
 .skill {
-  $logo-size: 2.5rem;
-  $logo-size-large: 5rem;
-
   display: inline-flex;
   flex-direction: row;
   align-items: center;
   position: relative;
 
   .logo {
+    flex-shrink: 0;
     width: $logo-size;
     height: $logo-size;
     transition: width 0.1s ease-in, height 0.1s ease-in;
@@ -26,7 +25,8 @@
   .status {
     display: flex;
     white-space: nowrap;
-    flex: 1 1 auto;
+    width: 0;
+    transition: width 0.4s ease-out;
     height: 100%;
 
     .status-info {
@@ -68,6 +68,7 @@
         border: 1px solid #0000001a;
         border-left: none;
         box-shadow: 0 0.2rem 0.3rem rgb(0 0 0 / 10%);
+        background-color: white;
       }
     }
   }
@@ -85,6 +86,8 @@
     }
 
     .status {
+      width: 100%;
+
       .status-info {
         width: 100%;
       }

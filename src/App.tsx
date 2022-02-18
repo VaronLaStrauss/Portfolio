@@ -28,7 +28,11 @@ export default class App extends Component {
     return this.skills
       .sort((a, b) => b.percent - a.percent)
       .map((skill: Skill, i) => {
-        return <SkillComponent key={i} {...skill} />;
+        return (
+          <div key={i} className="skill-container">
+            <SkillComponent {...skill} />
+          </div>
+        );
       });
   }
 }
