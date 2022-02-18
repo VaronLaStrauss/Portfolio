@@ -1,0 +1,30 @@
+@import "/src/styles/colors.scss";
+
+.sidenav {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  position: absolute;
+  background-color: white;
+  transition: all 0.1s ease-in;
+  z-index: 4;
+  transform: translateX(-100%);
+  background-color: $backdrop-bg;
+
+  &.open {
+    transform: translate(0);
+  }
+
+  .sidenav-content {
+    background-color: white;
+    height: 100%;
+    width: 100%;
+    position: relative;
+
+    .close {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+    }
+  }
+}
