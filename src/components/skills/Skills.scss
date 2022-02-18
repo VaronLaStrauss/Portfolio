@@ -8,12 +8,13 @@
   flex-direction: row;
   align-items: center;
   position: relative;
+  justify-content: center;
 
   .logo {
     flex-shrink: 0;
     width: $logo-size;
     height: $logo-size;
-    transition: width 0.1s ease-in, height 0.1s ease-in;
+    transition: all 0.1s ease-in 0.4s;
 
     img {
       height: 100%;
@@ -83,6 +84,7 @@
     .logo {
       width: $logo-size-large;
       height: $logo-size-large;
+      transition: all 0.1s ease-in;
     }
 
     .status {
