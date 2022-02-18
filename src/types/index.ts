@@ -1,5 +1,5 @@
 export type Skill = {
   percent: number;
   name: string;
-  logo?: string;
+  logo: string;
 };
