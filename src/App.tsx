@@ -1,5 +1,8 @@
 import { Component, ReactNode } from "react";
-import "./App.css";
+import "./App.scss";
+import CoverComponent from "./components/cover/Cover";
+import HeaderComponent from "./components/header/Header";
+import SidenavComponent from "./components/sidenav/Sidenav";
 import SkillComponent from "./components/skills/Skills";
 import { Skill } from "./types";
 
@@ -13,15 +16,45 @@ export default class App extends Component {
     { name: "Docker", percent: 25, logo: "docker.png" },
   ];
 
+  state = { isMobile: window.innerWidth < 768, isSidenavOpen: false };
+
+  componentDidMount() {
+    window.addEventListener("resize", () => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile !== this.state.isMobile) {
+        this.setState({ isMobile, isSidenavOpen: false });
+      }
+    });
+  }
+
   render(): ReactNode {
     return (
-      <div>
+      <main>
+        <SidenavComponent
+          {...{
+            isSidenavOpen: this.state.isSidenavOpen,
+            onToggleSidenav: this.onToggleSidenav.bind(this),
+          }}
+        />
+        <HeaderComponent
+          {...{
+            isMobile: this.state.isMobile,
+            onToggleSidenav: this.onToggleSidenav.bind(this),
+          }}
+        />
+        <div className="cover">
+          <CoverComponent />
+        </div>
         <div>
           <h2>Skills</h2>
           <div className="skillset">{this.skillset}</div>
         </div>
-      </div>
+      </main>
     );
+  }
+
+  onToggleSidenav() {
+    this.setState({ ...this.state, isSidenavOpen: !this.state.isSidenavOpen });
   }
 
   get skillset(): ReactNode {

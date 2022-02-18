@@ -1,0 +1,33 @@
+@import "/src/styles/skill-logo.scss";
+
+main {
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  position: relative;
+  background-color: white;
+}
+
+.skillset {
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+
+  .skill-container {
+    position: relative;
+    display: flex;
+    transition: all 0.1s ease-in;
+    width: $logo-size-large;
+    height: $logo-size-large;
+
+    &:hover {
+      width: 15rem;
+      z-index: 3;
+    }
+
+    .skill {
+      width: 100%;
+    }
+  }
+}
