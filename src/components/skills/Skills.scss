@@ -19,7 +19,7 @@
     img {
       height: 100%;
       width: 100%;
-      object-fit: cover;
+      object-fit: contain;
     }
   }
 
@@ -55,7 +55,7 @@
           background-color: $bg-primary-dark;
           transition: all 0.6s ease-out;
           display: flex;
-          justify-content: end;
+          justify-content: flex-end;
           align-items: center;
           color: white;
           padding-right: 1.25ch;

@@ -14,7 +14,7 @@ export default class SkillComponent extends Component {
     return (
       <article className="skill">
         <div className="logo">
-          <img src={"logo/" + logo} alt={name} />
+          <img src={logo} alt={name} />
         </div>
         <div className="status">
           {/* <span className="small-spacer"></span> */}

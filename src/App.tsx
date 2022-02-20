@@ -4,18 +4,18 @@ import CoverComponent from "./components/cover/Cover";
 import HeaderComponent from "./components/header/Header";
 import SidenavComponent from "./components/sidenav/Sidenav";
 import SkillComponent from "./components/skills/Skills";
+import {
+  backendTech,
+  databases,
+  deploymentStrategies,
+  designing,
+  frontEndTech,
+  languages,
+  networkingTech,
+} from "./constants/constants";
 import { Skill } from "./types";
 
 export default class App extends Component {
-  skills: Skill[] = [
-    { name: "Angular", percent: 90, logo: "angular.png" },
-    { name: "React", percent: 60, logo: "react.svg" },
-    { name: "TypeScript", percent: 80, logo: "typescript.png" },
-    { name: "JavaScript", percent: 80, logo: "javascript.png" },
-    { name: "CSS", percent: 60, logo: "css.png" },
-    { name: "Docker", percent: 25, logo: "docker.png" },
-  ];
-
   state = { isMobile: window.innerWidth < 768, isSidenavOpen: false };
 
   componentDidMount() {
@@ -47,7 +47,33 @@ export default class App extends Component {
         </div>
         <div>
           <h2>Skills</h2>
-          <div className="skillset">{this.skillset}</div>
+          <div className="skillset">{this.getSkillset(frontEndTech)}</div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">{this.getSkillset(designing)}</div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">
+            {this.getSkillset(deploymentStrategies)}
+          </div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">{this.getSkillset(networkingTech)}</div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">{this.getSkillset(backendTech)}</div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">{this.getSkillset(languages)}</div>
+        </div>
+        <div>
+          <h2>Skills</h2>
+          <div className="skillset">{this.getSkillset(databases)}</div>
         </div>
       </main>
     );
@@ -57,8 +83,8 @@ export default class App extends Component {
     this.setState({ ...this.state, isSidenavOpen: !this.state.isSidenavOpen });
   }
 
-  get skillset(): ReactNode {
-    return this.skills
+  getSkillset(skillSet: Skill[]): ReactNode {
+    return skillSet
       .sort((a, b) => b.percent - a.percent)
       .map((skill: Skill, i) => {
         return (
