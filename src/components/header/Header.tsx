@@ -16,7 +16,7 @@ export default class HeaderComponent extends Component {
       onToggleSidenav: () => void;
     };
     const btnTrigger = (
-      <button className="btn-icon accent" onClick={onToggleSidenav}>
+      <button className="btn-icon" onClick={onToggleSidenav}>
         <span className="material-icons">menu</span>
       </button>
     );

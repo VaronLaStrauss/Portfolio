@@ -42,9 +42,7 @@ export default class App extends Component {
             onToggleSidenav: this.onToggleSidenav.bind(this),
           }}
         />
-        <div className="cover">
-          <CoverComponent />
-        </div>
+        <CoverComponent />
         <div>
           <h2>Skills</h2>
           <div className="skillset">{this.getSkillset(frontEndTech)}</div>

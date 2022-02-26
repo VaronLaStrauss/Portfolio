@@ -6,6 +6,9 @@ main {
   overflow-y: auto;
   position: relative;
   background-color: white;
+
+  overflow-x: hidden;
+  perspective: 100px;
 }
 
 .skillset {

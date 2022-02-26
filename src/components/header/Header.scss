@@ -5,13 +5,13 @@ nav {
   gap: 1rem;
   width: 100%;
   position: sticky;
-  top: 1rem;
+  top: 0;
   height: 4rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0rem 1rem;
-  margin-top: 3rem;
+  margin-top: 1rem;
   z-index: 2;
   box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.2);
   background-color: $bg-primary-dark;
