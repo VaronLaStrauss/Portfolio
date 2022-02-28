@@ -1,36 +1,35 @@
-import { Component } from "react";
+import { Component, ReactNode } from "react";
 import { Skill } from "../../types";
+import SkillItemComponent from "./skill-item/Skill-Item";
 import "./Skills.scss";
 
 export default class SkillComponent extends Component {
   render() {
-    const { name, percent, logo } = this.props as Skill;
-    const putPercentage = (node: HTMLElement | null) => {
-      if (node) {
-        node.style.setProperty("--percent", `${percent}%`);
-      }
+    const { skillname, skills } = this.props as {
+      skillname: string;
+      skills: Skill[];
     };
-
     return (
-      <article className="skill">
-        <div className="logo">
-          <img src={logo} alt={name} />
+      <div className="card">
+        <div className="skill-name">
+          <hr />
+          <h2>{skillname}</h2>
+          <hr />
         </div>
-        <div className="status">
-          {/* <span className="small-spacer"></span> */}
-          <div className="status-info">
-            <div className="status-bar">
-              {/* <div className="triangle-right"></div> */}
-              <div className="bar-filled" ref={putPercentage}>
-                <span>{percent}%</span>
-              </div>
-            </div>
-            <div className="name">
-              <span>{name}</span>
-            </div>
-          </div>
-        </div>
-      </article>
+        <div className="skillset">{this.getSkillset(skills)}</div>
+      </div>
     );
+  }
+
+  getSkillset(skillSet: Skill[]): ReactNode {
+    return skillSet
+      .sort((a, b) => b.percent - a.percent)
+      .map((skill: Skill, i) => {
+        return (
+          <div key={i} className="skill-container">
+            <SkillItemComponent {...skill} />
+          </div>
+        );
+      });
   }
 }

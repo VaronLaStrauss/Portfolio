@@ -13,7 +13,7 @@ import {
   languages,
   networkingTech,
 } from "./constants/constants";
-import { Skill } from "./types";
+import manHandOut from "./assets/images/man-hold-out-hand.png";
 
 export default class App extends Component {
   state = { isMobile: window.innerWidth < 768, isSidenavOpen: false };
@@ -43,53 +43,38 @@ export default class App extends Component {
           }}
         />
         <CoverComponent />
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(frontEndTech)}</div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(designing)}</div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">
-            {this.getSkillset(deploymentStrategies)}
+        <div className="content">
+          <div className="skills">
+            {!this.state.isMobile && (
+              <div className="man-hand-container">
+                <img src={manHandOut} />
+              </div>
+            )}
+            <div style={{ flex: "1 1 auto" }}>
+              <div className="skillset-container">{this.skillset}</div>
+            </div>
           </div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(networkingTech)}</div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(backendTech)}</div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(languages)}</div>
-        </div>
-        <div>
-          <h2>Skills</h2>
-          <div className="skillset">{this.getSkillset(databases)}</div>
         </div>
       </main>
     );
   }
 
-  onToggleSidenav() {
-    this.setState({ ...this.state, isSidenavOpen: !this.state.isSidenavOpen });
+  get skillset(): ReactNode {
+    const skills = [
+      { skillname: "Front-End", skills: frontEndTech },
+      { skillname: "Back-End", skills: backendTech },
+      { skillname: "Networking", skills: networkingTech },
+      { skillname: "Databases", skills: databases },
+      { skillname: "Languages", skills: languages },
+      { skillname: "Deployment", skills: deploymentStrategies },
+      { skillname: "Designing", skills: designing },
+    ];
+    return skills.map(({ skillname, skills }, i) => {
+      return <SkillComponent key={i} {...{ skillname, skills }} />;
+    });
   }
 
-  getSkillset(skillSet: Skill[]): ReactNode {
-    return skillSet
-      .sort((a, b) => b.percent - a.percent)
-      .map((skill: Skill, i) => {
-        return (
-          <div key={i} className="skill-container">
-            <SkillComponent {...skill} />
-          </div>
-        );
-      });
+  onToggleSidenav() {
+    this.setState({ ...this.state, isSidenavOpen: !this.state.isSidenavOpen });
   }
 }

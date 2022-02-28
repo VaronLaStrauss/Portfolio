@@ -1,0 +1,107 @@
+@use "/src/styles/utility.scss";
+@import "/src/styles/colors.scss";
+@import "/src/styles/tooltip.scss";
+@import "/src/styles/skill-logo.scss";
+
+.skill {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+
+  .logo {
+    flex-shrink: 0;
+    width: $logo-size;
+    height: $logo-size;
+    transition: all 0.1s ease-in 0.4s;
+
+    img {
+      height: 100%;
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .status {
+    display: flex;
+    white-space: nowrap;
+    width: 0;
+    transition: width 0.4s ease-out;
+    height: 100%;
+
+    .status-info {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      width: 0;
+      overflow: hidden;
+      transition: width 0.4s ease-out;
+
+      .status-bar {
+        $height: 0.9rem;
+        height: $height;
+        overflow: hidden;
+        font-size: 70%;
+        background-color: $bg-primary;
+        width: 90%;
+        position: relative;
+        border-top-right-radius: 15px;
+
+        .bar-filled {
+          border-top-right-radius: 15px;
+          height: 100%;
+          width: 0;
+          background-color: $bg-primary-dark;
+          transition: all 0.6s ease-out;
+          display: flex;
+          justify-content: flex-end;
+          align-items: center;
+          color: white;
+          padding-right: 1.25ch;
+        }
+      }
+
+      .name {
+        padding: 0.3rem 0.5rem;
+        border-top-right-radius: 15px;
+        border-bottom-right-radius: 16px;
+        border: 1px solid #0000001a;
+        border-left: none;
+        box-shadow: 0 0.2rem 0.3rem rgb(0 0 0 / 10%);
+        background-color: white;
+      }
+    }
+  }
+
+  .small-spacer {
+    flex: 0 0 calc($logo-size / 2);
+    width: 0;
+    transition: all 0.1s ease-in;
+  }
+
+  &:hover {
+    .logo {
+      width: $logo-size-large;
+      height: $logo-size-large;
+      transition: all 0.1s ease-in;
+    }
+
+    .status {
+      width: 100%;
+
+      .status-info {
+        width: 100%;
+      }
+
+      .bar-filled {
+        width: var(--percent) !important;
+      }
+    }
+
+    .small-spacer {
+      flex: 0 0 calc($logo-size-large / 2);
+      width: auto;
+    }
+  }
+}

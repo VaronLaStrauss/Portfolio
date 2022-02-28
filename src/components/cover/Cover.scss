@@ -4,18 +4,37 @@
   transform-style: preserve-3d;
   z-index: -1;
 
-  img {
+  & > img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
     position: absolute;
     z-index: -1;
+    object-fit: cover;
+  }
+
+  .cover-photo {
+    $square-size: clamp(20rem, 100%, 30vw);
+    width: $square-size;
+    height: $square-size;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      height: 100%;
+      width: 100%;
+      border-radius: 50%;
+    }
   }
 }
 
-.sun,
-.moon {
-  transform: translateZ(-100px) scale(2);
+.background {
+  transform: translateZ(-100px) scale(2.1);
+}
+
+.sun {
+  transform: translateZ(-100px) scale(2.1);
 }
 
 .clouds-back {
@@ -24,6 +43,10 @@
 
 .stars {
   transform: translateZ(-90px) scale(1.91);
+}
+
+.moon {
+  transform: translateZ(-85px) scale(1.851);
 }
 
 .back-mountain-2 {
@@ -35,7 +58,7 @@
 }
 
 .clouds-front {
-  transform: translateZ(-55px) scale(1.551);
+  transform: translateZ(-65px) scale(1.651);
 }
 
 .mid-mountain-4 {
@@ -51,7 +74,7 @@
 }
 
 .mid-mountain-1 {
-  transform: translateZ(-35px) scale(1.351);
+  transform: translateZ(-25px) scale(1.251);
 }
 
 .front-mountain {

@@ -12,23 +12,39 @@ import frontMt from "../../assets/images/front-mt.png";
 import moon from "../../assets/images/moon.png";
 import stars from "../../assets/images/stars.png";
 import sun from "../../assets/images/sun.png";
+import skyDay from "../../assets/images/sky-day.png";
+import skyNight from "../../assets/images/sky-night.png";
+import me from "../../assets/images/Me.jpg";
 
 export default class CoverComponent extends Component {
+  state = {
+    isDarkMode: window.matchMedia("(prefers-color-scheme: dark)").matches,
+  };
+
   render(): ReactNode {
     return (
       <div className="cover">
-        <img className="sun" src={sun} />
-        <img className="stars" src={stars} />
-        <img className="moon" src={moon} />
-        <img className="clouds-back" src={cloudsback} />
+        {!this.state.isDarkMode && <img className="background" src={skyDay} />}
+        {this.state.isDarkMode && <img className="background" src={skyNight} />}
+        {!this.state.isDarkMode && <img className="sun" src={sun} />}
+        {this.state.isDarkMode && <img className="stars" src={stars} />}
+        {this.state.isDarkMode && <img className="moon" src={moon} />}
+        {!this.state.isDarkMode && (
+          <img className="clouds-back" src={cloudsback} />
+        )}
         <img className="back-mountain-2" src={backMt2} />
         <img className="back-mountain-1" src={backMt1} />
-        <img className="clouds-front" src={cloudsfront} />
+        {!this.state.isDarkMode && (
+          <img className="clouds-front" src={cloudsfront} />
+        )}
         <img className="mid-mountain-4" src={midMt4} />
         <img className="mid-mountain-3" src={midMt3} />
         <img className="mid-mountain-2" src={midMt2} />
         <img className="mid-mountain-1" src={midMt1} />
         <img className="front-mountain" src={frontMt} />
+        <div className="cover-photo">
+          <img src={me} />
+        </div>
       </div>
     );
   }

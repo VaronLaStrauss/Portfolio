@@ -1,36 +1,41 @@
-@import "/src/styles/skill-logo.scss";
-
 main {
   height: 100vh;
   width: 100vw;
   overflow-y: auto;
   position: relative;
-  background-color: white;
-
   overflow-x: hidden;
   perspective: 100px;
-}
 
-.skillset {
-  padding: 1rem;
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
+  .content {
+    background-color: white;
+  }
 
-  .skill-container {
-    position: relative;
+  .skills {
     display: flex;
-    transition: all 0.1s ease-in;
-    width: $logo-size-large;
-    height: $logo-size-large;
+    flex-direction: row;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10%;
+    padding: 1rem 0;
+    gap: 1rem;
 
-    &:hover {
-      width: 15rem;
-      z-index: 3;
+    .man-hand-container {
+      flex: 0 0 auto;
+      margin-top: auto;
+      height: 30rem;
+      position: sticky;
+      bottom: 0;
+
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: contain;
+      }
     }
 
-    .skill {
-      width: 100%;
+    .skillset-container {
+      flex: 1 1 auto;
     }
   }
 }
