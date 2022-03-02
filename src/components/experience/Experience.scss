@@ -1,0 +1,29 @@
+.exp {
+  padding: 1rem 5%;
+
+  .title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    gap: 1rem;
+
+    hr:first-of-type {
+      height: 1px;
+      flex: 0 0 1rem;
+    }
+
+    hr:last-of-type {
+      height: 1px;
+      flex: 1 0 1rem;
+    }
+  }
+
+  .exp-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0 2%;
+  }
+}

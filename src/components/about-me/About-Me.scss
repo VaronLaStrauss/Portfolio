@@ -1,0 +1,23 @@
+.about-me {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 5%;
+  position: relative;
+
+  hr {
+    width: 100%;
+  }
+
+  h1 {
+    text-align: center;
+    flex: 1 1 auto;
+  }
+
+  .right {
+    flex: 1 1 60%;
+  }
+}

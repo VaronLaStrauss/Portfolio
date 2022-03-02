@@ -1,4 +1,34 @@
 @import "./colors.scss";
+.dark {
+  color: white;
+  .content {
+    background-color: $dark-bg-color;
+  }
+
+  .txt-muted {
+    color: $dark-txt-muted;
+  }
+
+  .status-info .name {
+    background-color: $dark-bg-elevated-color !important;
+  }
+
+  .card {
+    background-color: $dark-bg-elevated-color-dark;
+  }
+
+  .sidenav {
+    background-color: $dark-bg-color;
+
+    .sidenav-content {
+      background-color: $dark-bg-color;
+    }
+
+    button {
+      color: white;
+    }
+  }
+}
 
 .spacer {
   flex: 1;
@@ -18,7 +48,7 @@
 .card {
   border-radius: 10px;
   padding: 1rem;
-  box-shadow: 0 0.2rem 0.3rem rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.4rem 0.5rem rgba(0, 0, 0, 0.1);
 }
 
 .btn-icon {
@@ -47,4 +77,13 @@
   &:active {
     background-color: $bg-accent-dark;
   }
+}
+
+.spacer-sm {
+  flex: 0 0 1rem;
+}
+
+.anchor {
+  position: absolute;
+  top: -4rem;
 }

@@ -1,0 +1,22 @@
+.cert-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+
+  h3 {
+    margin: 0;
+  }
+
+  .logo {
+    flex: 0 0 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

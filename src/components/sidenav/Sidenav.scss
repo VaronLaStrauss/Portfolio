@@ -7,9 +7,8 @@
   position: absolute;
   background-color: white;
   transition: all 0.1s ease-in;
-  z-index: 4;
+  z-index: 9;
   transform: translateX(-100%);
-  background-color: $backdrop-bg;
 
   &.open {
     transform: translate(0);
@@ -25,6 +24,29 @@
       position: absolute;
       top: 1rem;
       right: 1rem;
+    }
+
+    .sidenav-links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      padding: 0 2rem;
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+        height: 3rem;
+      }
+
+      hr {
+        width: 100%;
+      }
     }
   }
 }
